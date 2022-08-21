@@ -1,4 +1,9 @@
 .wrapper {
+    --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-height-spacer: 9px;
+    --search-button-width: 52px;
+
     width: 100%;
     height: var(--default-layout-header-height, 60px);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
@@ -9,4 +14,80 @@
 .inner {
     height: 100%;
     width: var(--default-layout-width, 1150px);
+    padding: 0 24px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search {
+    width: 361px;
+    height: var(--search-height);
+    padding-left: 16px;
+    border-radius: var(--search-border-radius);
+    background-color: rgba(22, 24, 35, 0.06);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border: 1.5px solid transparent;
+
+    input {
+        height: 100%;
+        background-color: transparent;
+        font-size: 1.5rem;
+        color: var(--black);
+        caret-color: var(--primary);
+        flex: 1;
+    }
+
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    &::after {
+        content: '';
+        width: 1px;
+        height: calc(var(--search-height) - 2 * var(--search-height-spacer));
+        background-color: rgba(22, 24, 35, 0.12);
+        position: absolute;
+        top: 50%;
+        right: var(--search-button-width);
+        transform: translateY(-50%);
+    }
+
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: calc(var(--search-button-width) + 16px);
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 1.6rem;
+}
+
+.search-btn {
+    width: var(--search-button-width);
+    height: 100%;
+    font-size: 1.8rem;
+    color: rgba(22, 24, 35, 0.34);
+    background: transparent;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.actions {
+    height: 100%;
+    min-width: 100px;
+    background-color: violet;
 }

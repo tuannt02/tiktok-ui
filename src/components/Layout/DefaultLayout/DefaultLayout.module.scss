@@ -7,7 +7,6 @@
 .container {
     width: var(--default-layout-width);
     min-height: 1000px;
-    background-color: aqua;
     display: flex;
     // justify-content: space-between;
 }
@@ -15,5 +14,4 @@
 .content {
     // width: 692px;
     flex: 1;
-    background-color: black;
 }
