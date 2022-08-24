@@ -2,12 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200;300;400;500;600;700&display=swap');
 
 :root {
+    // Color
     --primary: #fe2c55;
     --transparent: transparent;
     --white: #fff;
     --black: #000;
     --gray: #1618231f;
-    --text-color: #333;
+
+    --pri-100: rgb(22 24 35); // text
+    --pri-075: rgba(22, 24, 35, 0.75); // title
+    --pri-050: rgba(22, 24, 35, 0.5); // describe
+    --pri-020: rgba(22, 24, 35, 0.2); // border/divider when hover 1
+    --pri-012: rgba(22, 24, 35, 0.12); // border/divider 2
+    --pri-006: rgba(22, 24, 35, 0.06); // background button/ scrollbar
+    --pri-003: rgba(22, 24, 35, 0.03); // background hover
 
     // DefaultLayout
     --default-layout-header-height: 60px;
@@ -30,7 +38,7 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
-    color: var(--text-color);
+    color: var(--pri-100);
 }
 
 button,

@@ -65,7 +65,7 @@ function Header() {
                     >
                         Upload
                     </Button>
-                    <Button type="primary">Log in</Button>
+                    <Button type="primary">Log In</Button>
                 </div>
             </div>
         </header>

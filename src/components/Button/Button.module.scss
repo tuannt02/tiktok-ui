@@ -59,7 +59,7 @@
     color: var(--primary);
 
     &:hover {
-        background-color: rgba(254, 44, 85, 0.06);
+        background-color: var(--pri-006);
     }
 }
 
@@ -119,7 +119,7 @@
 }
 
 .brd-gray {
-    border-color: var(--gray);
+    border-color: var(--pri-012);
 }
 
 // Background color
@@ -129,5 +129,5 @@
 
 // Hover color
 .h-gray:hover {
-    background-color: rgba(22, 24, 35, 0.03);
+    background-color: var(--pri-003);
 }
