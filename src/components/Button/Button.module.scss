@@ -5,8 +5,10 @@
     min-width: 100px;
     padding: 8px 16px;
     border-radius: 4px;
+    line-height: 1.15;
     font-size: 1.6rem;
     font-weight: 700;
+    font-family: 'Arial';
     cursor: pointer;
     background-color: var(--white);
     border: 1px solid transparent;
@@ -18,11 +20,6 @@
 
     &.rounded {
         border-radius: 999px;
-
-        // &:hover {
-        //     border-color: rgba(22, 24, 35, 0.2);
-        //     background-color: rgba(22, 24, 35, 0.03);
-        // }
     }
 
     &.disabled {
@@ -32,7 +29,7 @@
 }
 
 // icon
-.icon + .title,
+// .icon + .title,
 .title + .icon {
     margin-left: 10px;
 }
@@ -40,6 +37,10 @@
 .icon {
     display: inline-flex;
     align-items: center;
+}
+
+.leftIcon {
+    width: 28px;
 }
 
 // Button types
@@ -98,7 +99,7 @@
 }
 
 .t-text {
-    color: var(--text-color);
+    color: var(--pri-075);
 }
 
 .t-gray {
@@ -118,6 +119,10 @@
     border-color: var(--transparent);
 }
 
+.brd-white {
+    border-color: var(--white);
+}
+
 .brd-gray {
     border-color: var(--pri-012);
 }
@@ -125,6 +130,10 @@
 // Background color
 .bg-transparent {
     background-color: transparent;
+}
+
+.bg-white {
+    background-color: var(--white);
 }
 
 // Hover color
