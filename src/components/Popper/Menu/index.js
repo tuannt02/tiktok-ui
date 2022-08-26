@@ -7,7 +7,7 @@ import MenuItem from './MenuItem';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [] }) {
+function Menu({ className, children, items = [] }) {
     const renderItem = () => {
         return items.map((item, index) => <MenuItem key={index} data={item} />);
     };
@@ -16,7 +16,8 @@ function Menu({ children, items = [] }) {
         <Tippy
             interactive
             delay={[0, 700]}
-            placement="top-end"
+            offset={[16, 3]}
+            placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>{renderItem()}</PopperWrapper>

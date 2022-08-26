@@ -1,5 +1,18 @@
 .menu-list {
     width: 224px;
+    position: relative;
+
+    &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid var(--white);
+        position: absolute;
+        top: -8px;
+        right: 21px;
+    }
 }
 
 .menu-popper {
