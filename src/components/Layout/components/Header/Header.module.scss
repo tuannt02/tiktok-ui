@@ -100,9 +100,37 @@
 .actions {
     display: flex;
     align-items: center;
-    min-width: 100px;
 }
 
+// user login
+.action_btn {
+    cursor: pointer;
+
+    + .action_btn {
+        margin-left: 16px;
+    }
+}
+
+.message_btn,
+.inbox_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+}
+
+.user_btn {
+    width: 32px;
+    height: 32px;
+    margin-left: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+// user unlogin
 .more-btn {
     display: flex;
     align-items: center;
