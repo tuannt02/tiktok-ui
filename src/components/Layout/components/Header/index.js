@@ -23,6 +23,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
+import Icon from '~/components/Icon';
+import Image from '~/components/Image';
 
 // bind cai' object style nay vao roi tra ra function. Roi dung cai nay lam class
 // thi khi do giup cac ban viet duoi dang dau gach ngang
@@ -144,19 +146,20 @@ function Header() {
                             </Button>
                             <Tippy content="Messages" delay={[0, 200]} offset={[0, 6]}>
                                 <button className={cx('action_btn', 'message_btn')}>
-                                    <img src={images.message_regular} alt="message btn" />
+                                    <Icon icon="message" />
                                 </button>
                             </Tippy>
                             <Tippy content="Inbox" offset={[0, 6]}>
                                 <button className={cx('action_btn', 'inbox_btn')}>
-                                    <img src={images.inbox_regular} alt="inbox btn" />
+                                    <Icon icon="inbox" />
                                 </button>
                             </Tippy>
                             <Menu items={USER_MENU_ITEMS} onChange={handleMenuChange} offset={[13, 12]}>
-                                <img
+                                <Image
                                     className={cx('user_btn')}
                                     src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/09be93014681f7361b2d266025e4c201.jpeg?x-expires=1661763600&x-signature=Kn2PIRgxFP6eUKdGxIqPWIW8eSw%3D"
                                     alt="userimage"
+                                    fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
                                 />
                             </Menu>
                         </>

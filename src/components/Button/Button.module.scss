@@ -5,10 +5,12 @@
     min-width: 100px;
     padding: 8px 16px;
     border-radius: 4px;
-    line-height: 1.15;
+
     font-size: 1.6rem;
-    font-weight: 700;
-    font-family: 'Arial';
+    font-weight: var(--fontWeightSemibold);
+    font-family: var(--fontFamilyParagraph);
+    line-height: 1.15;
+
     cursor: pointer;
     background-color: var(--white);
     border: 1px solid transparent;
@@ -75,21 +77,18 @@
     min-width: 88px;
     padding: 4px 16px;
     font-size: 1.6rem;
-    font-weight: 600;
 }
 
 .medium {
     min-width: 100px;
     padding: 8px 16px;
     font-size: 1.6rem;
-    font-weight: 700;
 }
 
 .large {
     min-width: 140px;
     padding: 13px 16px;
     font-size: 1.8rem;
-    font-weight: 600;
 }
 
 // Particular Custom
@@ -99,7 +98,7 @@
 }
 
 .t-text {
-    color: var(--pri-075);
+    color: var(--pri-100);
 }
 
 .t-gray {
