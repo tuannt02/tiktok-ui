@@ -1,3 +1,7 @@
+# 🤷‍ Preview
+
+You can see my app at here: [Tiktok App](https://tuannt02.github.io/tiktok-ui/).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
