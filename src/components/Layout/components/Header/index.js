@@ -25,6 +25,7 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Icon from '~/components/Icon';
 import Image from '~/components/Image';
+import Badge from '~/components/Badge';
 
 // bind cai' object style nay vao roi tra ra function. Roi dung cai nay lam class
 // thi khi do giup cac ban viet duoi dang dau gach ngang
@@ -147,11 +148,17 @@ function Header() {
                             <Tippy content="Messages" delay={[0, 200]} offset={[0, 6]}>
                                 <button className={cx('action_btn', 'message_btn')}>
                                     <Icon icon="message" />
+                                    <Badge offset={[-4, 18]} max={99}>
+                                        1001
+                                    </Badge>
                                 </button>
                             </Tippy>
                             <Tippy content="Inbox" offset={[0, 6]}>
                                 <button className={cx('action_btn', 'inbox_btn')}>
                                     <Icon icon="inbox" />
+                                    <Badge offset={[-4, 18]} max={99}>
+                                        5
+                                    </Badge>
                                 </button>
                             </Tippy>
                             <Menu items={USER_MENU_ITEMS} onChange={handleMenuChange} offset={[13, 12]}>

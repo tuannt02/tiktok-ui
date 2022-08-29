@@ -1,0 +1,27 @@
+.wrapper {
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 10px;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    color: var(--white);
+    background-color: var(--primary);
+
+    line-height: 2rem;
+    font-size: 1.4rem;
+    font-weight: var(--fontWeightSemibold);
+    font-family: var(--fontFamilyParagraph);
+}
+
+// Type button
+.positioned {
+    position: absolute;
+}
+
+.buttons {
+    position: unset;
+}
