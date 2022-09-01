@@ -66,9 +66,22 @@
 .clear,
 .loading {
     position: absolute;
-    right: calc(var(--search-button-width) + 16px);
+    right: calc(var(--search-button-width) + 12px);
     color: rgba(22, 24, 35, 0.34);
     font-size: 1.6rem;
+}
+
+.loading {
+    animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: 0;
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .search-btn {
