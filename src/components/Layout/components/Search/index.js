@@ -5,6 +5,7 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TippyHeadless from '@tippyjs/react/headless';
 
+import { useDebounce } from '~/Hooks';
 import AccountItem from '~/components/AccountItem';
 import Icon from '~/components/Icon';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -18,17 +19,19 @@ function Search() {
     const [isShowResult, setIsShowResult] = useState(true);
     const [isProcessingAPI, setIsProcessingAPI] = useState(false);
 
+    const valueDebounce = useDebounce(searchText, 500);
+
     const input = useRef();
 
     useEffect(() => {
-        if (!searchText.trim()) {
+        if (!valueDebounce.trim()) {
             setSearchResult([]);
             return;
         }
 
         setIsProcessingAPI(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchText)}&type=less`)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(valueDebounce)}&type=less`)
             .then((res) => res.json())
             .then((res) => {
                 setSearchResult(res.data);
@@ -37,7 +40,7 @@ function Search() {
             .catch(() => {
                 setIsProcessingAPI(false);
             });
-    }, [searchText]);
+    }, [valueDebounce]);
 
     const handleClear = () => {
         setSearchText('');
