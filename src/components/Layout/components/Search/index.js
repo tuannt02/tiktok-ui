@@ -5,6 +5,7 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TippyHeadless from '@tippyjs/react/headless';
 
+import * as searchServices from '~/apiServices/searchServices';
 import { useDebounce } from '~/Hooks';
 import AccountItem from '~/components/AccountItem';
 import Icon from '~/components/Icon';
@@ -29,17 +30,16 @@ function Search() {
             return;
         }
 
-        setIsProcessingAPI(true);
+        const fetchAPI = async () => {
+            setIsProcessingAPI(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(valueDebounce)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setIsProcessingAPI(false);
-            })
-            .catch(() => {
-                setIsProcessingAPI(false);
-            });
+            const result = await searchServices.search(valueDebounce);
+            setSearchResult(result);
+
+            setIsProcessingAPI(false);
+        };
+
+        fetchAPI();
     }, [valueDebounce]);
 
     const handleClear = () => {
