@@ -48,6 +48,17 @@ function Search() {
         input.current.focus();
     };
 
+    const handleTypeInput = (e) => {
+        const searchValue = e.target.value;
+
+        if (searchValue.startsWith(' ')) return;
+        setSearchText(searchValue);
+    };
+
+    const handleMouseDownSubmitBtn = (e) => {
+        e.preventDefault();
+    };
+
     const handleHideResult = () => {
         setIsShowResult(false);
     };
@@ -76,9 +87,7 @@ function Search() {
                     spellCheck={false}
                     ref={input}
                     value={searchText}
-                    onChange={(e) => {
-                        setSearchText(e.target.value);
-                    }}
+                    onChange={handleTypeInput}
                     onFocus={() => setIsShowResult(true)}
                 />
                 {!!searchText && !isProcessingAPI && (
@@ -88,7 +97,7 @@ function Search() {
                 )}
                 {isProcessingAPI && <Icon className={cx('loading')} icon="loading" />}
 
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={handleMouseDownSubmitBtn}>
                     <Icon icon="search" />
                 </button>
             </div>

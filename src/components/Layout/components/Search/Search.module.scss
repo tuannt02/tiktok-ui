@@ -15,12 +15,14 @@
     border: 1.5px solid transparent;
 
     input {
+        flex: 1;
         height: 100%;
         background-color: transparent;
-        font-size: 1.5rem;
+
+        font-family: var(--fontFamilyParagraph);
+        font-size: 1.6rem;
         color: var(--black);
         caret-color: var(--primary);
-        flex: 1;
     }
 
     input:not(:placeholder-shown) ~ .search-btn {

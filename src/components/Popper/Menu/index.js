@@ -40,6 +40,7 @@ function Menu({ offset = [0, 0], className, children, items = [], onChange = def
             delay={[0, 700]}
             offset={offset}
             placement="bottom-end"
+            hideOnClick={false}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
