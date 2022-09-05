@@ -64,44 +64,48 @@ function Search() {
     };
 
     return (
-        <TippyHeadless
-            interactive
-            visible={isShowResult && searchResult.length > 0}
-            render={(attrs) => (
-                <div className={cx('search-results')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {searchResult.map((data) => (
-                            <AccountItem key={data.id} data={data} />
-                        ))}
-                        <div className={cx('search-more')}>{`View all results for "${searchText}"`}</div>
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleHideResult}
-        >
-            <div className={cx('search')}>
-                <input
-                    className={cx('input')}
-                    placeholder="Search accounts and videos"
-                    spellCheck={false}
-                    ref={input}
-                    value={searchText}
-                    onChange={handleTypeInput}
-                    onFocus={() => setIsShowResult(true)}
-                />
-                {!!searchText && !isProcessingAPI && (
-                    <button className={cx('clear')} onClick={handleClear}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
+        // Using a wrapper <div> or <span> tag around the reference element solves
+        // this by creating a new parentNode context.
+        <div>
+            <TippyHeadless
+                interactive
+                visible={isShowResult && searchResult.length > 0}
+                render={(attrs) => (
+                    <div className={cx('search-results')} tabIndex="-1" {...attrs}>
+                        <PopperWrapper>
+                            <h4 className={cx('search-title')}>Accounts</h4>
+                            {searchResult.map((data) => (
+                                <AccountItem key={data.id} data={data} />
+                            ))}
+                            <div className={cx('search-more')}>{`View all results for "${searchText}"`}</div>
+                        </PopperWrapper>
+                    </div>
                 )}
-                {isProcessingAPI && <Icon className={cx('loading')} icon="loading" />}
+                onClickOutside={handleHideResult}
+            >
+                <div className={cx('search')}>
+                    <input
+                        className={cx('input')}
+                        placeholder="Search accounts and videos"
+                        spellCheck={false}
+                        ref={input}
+                        value={searchText}
+                        onChange={handleTypeInput}
+                        onFocus={() => setIsShowResult(true)}
+                    />
+                    {!!searchText && !isProcessingAPI && (
+                        <button className={cx('clear')} onClick={handleClear}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    )}
+                    {isProcessingAPI && <Icon className={cx('loading')} icon="loading" />}
 
-                <button className={cx('search-btn')} onMouseDown={handleMouseDownSubmitBtn}>
-                    <Icon icon="search" />
-                </button>
-            </div>
-        </TippyHeadless>
+                    <button className={cx('search-btn')} onMouseDown={handleMouseDownSubmitBtn}>
+                        <Icon icon="search" />
+                    </button>
+                </div>
+            </TippyHeadless>
+        </div>
     );
 }
 

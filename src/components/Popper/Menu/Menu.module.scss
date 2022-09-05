@@ -1,7 +1,12 @@
+.unpd {
+    padding-bottom: 0 !important;
+}
+
 .menu-list {
     width: 224px;
     position: relative;
 
+    // Arrow of popper
     &::after {
         content: '';
         width: 0;
@@ -16,12 +21,20 @@
 }
 
 .menu-popper {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 8px;
+}
+
+.menu-body {
+    overscroll-behavior: contain;
+    overflow-y: auto;
 }
 
 // Header
 .header {
     position: relative;
+    flex-shrink: 0;
     height: 50px;
     margin-top: -8px;
     display: flex;

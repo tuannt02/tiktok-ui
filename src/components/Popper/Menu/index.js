@@ -43,7 +43,7 @@ function Menu({ offset = [0, 0], className, children, items = [], onChange = def
             hideOnClick={false}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper className={cx('menu-popper')}>
+                    <PopperWrapper className={cx('menu-popper', { unpd: history.length > 1 })}>
                         {history.length > 1 && (
                             <Header
                                 title={currentState.title}
@@ -54,7 +54,7 @@ function Menu({ offset = [0, 0], className, children, items = [], onChange = def
                                 }}
                             />
                         )}
-                        {renderItem()}
+                        <div className={cx('menu-body')}>{renderItem()}</div>
                     </PopperWrapper>
                 </div>
             )}
