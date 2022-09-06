@@ -13,7 +13,7 @@ import classNames from 'classnames/bind';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import images from '~/assets/images';
 import Badge from '~/components/Badge';
 import Button from '~/components/Button';
@@ -92,7 +92,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo')}>
+                <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="Tiktok" />
                 </Link>
 
@@ -130,7 +130,7 @@ function Header() {
                             <Menu items={USER_MENU_ITEMS} onChange={handleMenuChange} offset={[13, 12]}>
                                 <Image
                                     className={cx('user_btn')}
-                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/09be93014681f7361b2d266025e4c201.jpeg?x-expires=1661763600&x-signature=Kn2PIRgxFP6eUKdGxIqPWIW8eSw%3D"
+                                    src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1662606000&x-signature=cVK0BpM7cg3Tm0MISe8gnNpnXus%3D"
                                     alt="userimage"
                                     fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
                                 />

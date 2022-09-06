@@ -5,8 +5,8 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TippyHeadless from '@tippyjs/react/headless';
 
-import * as searchServices from '~/apiServices/searchServices';
-import { useDebounce } from '~/Hooks';
+import * as searchServices from '~/services/searchService';
+import { useDebounce } from '~/hooks';
 import AccountItem from '~/components/AccountItem';
 import Icon from '~/components/Icon';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
