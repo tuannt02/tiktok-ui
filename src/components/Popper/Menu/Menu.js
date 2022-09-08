@@ -24,15 +24,41 @@ function Menu({ offset = [0, 0], children, items = [], onChange = defaultFn }) {
                     key={index}
                     data={item}
                     onClick={() => {
+                        // To submenu
                         if (isParent) {
                             setHistory((prev) => [...prev, item.children]);
-                        } else {
+                        }
+                        // Handle logic
+                        else {
                             onChange(item);
                         }
                     }}
                 />
             );
         });
+    };
+
+    const handleBack = () => {
+        const comeBackPrevState = [...history];
+        comeBackPrevState.pop();
+        setHistory(comeBackPrevState);
+    };
+
+    const renderResult = (attrs) => (
+        <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+            <PopperWrapper
+                className={cx('menu-popper', { unpd: history.length > 1 })}
+            >
+                {history.length > 1 && (
+                    <Header title={currentState.title} onBack={handleBack} />
+                )}
+                <div className={cx('menu-body')}>{renderItem()}</div>
+            </PopperWrapper>
+        </div>
+    );
+
+    const handleReset = () => {
+        setHistory((prev) => [prev[0]]);
     };
 
     return (
@@ -42,26 +68,8 @@ function Menu({ offset = [0, 0], children, items = [], onChange = defaultFn }) {
             offset={offset}
             placement="bottom-end"
             hideOnClick={false}
-            render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper className={cx('menu-popper', { unpd: history.length > 1 })}>
-                        {history.length > 1 && (
-                            <Header
-                                title={currentState.title}
-                                onBack={() => {
-                                    const comeBackPrevState = [...history];
-                                    comeBackPrevState.pop();
-                                    setHistory(comeBackPrevState);
-                                }}
-                            />
-                        )}
-                        <div className={cx('menu-body')}>{renderItem()}</div>
-                    </PopperWrapper>
-                </div>
-            )}
-            onHide={() => {
-                setHistory((prev) => [prev[0]]);
-            }}
+            render={renderResult}
+            onHide={handleReset}
         >
             {children}
         </Tippy>
