@@ -1,0 +1,74 @@
+// Suggest Account
+.wrapper {
+    padding: 16px 0;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 0.5px;
+        left: 8px;
+        right: 8px;
+        background: var(--pri-012);
+    }
+}
+
+.lable {
+    color: var(--pri-075);
+    font-size: 1.4rem;
+    font-weight: var(--fontWeightSemibold);
+    line-height: 20px;
+    padding: 0 8px;
+    margin-bottom: 8px;
+}
+
+.more-btn {
+    padding: 0 8px;
+    font-weight: var(--fontWeightSemibold);
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+// Account item
+.account-item {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--pri-003);
+    }
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info {
+    margin-left: 12px;
+}
+
+.username {
+    font-size: 1.6rem;
+    font-family: var(--fontFamilyHeading);
+}
+
+.check {
+    margin-left: 4px;
+    color: #20d5ec;
+}
+
+.name {
+    color: var(--pri-075);
+    font-size: 1.2rem;
+}

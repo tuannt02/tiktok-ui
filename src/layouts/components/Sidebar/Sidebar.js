@@ -3,13 +3,14 @@ import config from '~/config';
 import styles from './Sidebar.module.scss';
 import Menu, { MenuItem } from './Menu';
 import Icon from '~/components/Icon';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 const cx = classNames.bind(styles);
 
 function Sidebar() {
     return (
         <aside className={cx('wrapper')}>
-            <Menu>
+            <Menu className={cx('mode-actions')}>
                 <MenuItem
                     title="For You"
                     to={config.routes.home}
@@ -26,6 +27,16 @@ function Sidebar() {
                     icon={<Icon icon="live" />}
                 />
             </Menu>
+            <SuggestedAccounts
+                lable="Suggested accounts"
+                textMoreBtn="See all"
+                type="SuggestAccounts"
+            />
+            <SuggestedAccounts
+                lable="Following accounts"
+                textMoreBtn="See more"
+                type="FollowingAccounts"
+            />
         </aside>
     );
 }
